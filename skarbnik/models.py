@@ -48,8 +48,9 @@ class Payment(models.Model):
         db_table = 'payment'
 
 class PaymentImage(models.Model):
-    payment = models.ForeignKey(Payment, related_name='images', on_delete=models.CASCADE)
+    id_field = models.AutoField(db_column='id', primary_key=True)
     image = models.ImageField(upload_to='images')
+    payment = models.ForeignKey(Payment, related_name='images', on_delete=models.CASCADE)
 
 class PaymentDetail(models.Model):
     id_field = models.AutoField(db_column='id_', primary_key=True)  # Field renamed because it ended with '_'.

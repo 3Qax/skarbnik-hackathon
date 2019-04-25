@@ -615,6 +615,17 @@ LOCK TABLES `user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `user_user_permissions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_user_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `skarbnik_paymentimage`;
+CREATE TABLE `skarbnik_paymentimage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(100) NOT NULL,
+  `payment_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `skarbnik_paymentimage_payment_id_ae274325_fk_payment_id_` (`payment_id`),
+  CONSTRAINT `skarbnik_paymentimage_payment_id_ae274325_fk_payment_id_` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

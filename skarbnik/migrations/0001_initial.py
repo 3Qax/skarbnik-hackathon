@@ -89,8 +89,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='PaymentImage',
             fields=[
-                ('id_field', models.AutoField(db_column='id_', primary_key=True, serialize=False)),
-                ('image', models.ImageField(upload_to='')),
+                ('id_field', models.AutoField(db_column='id', primary_key=True)),
+                ('image', models.ImageField(upload_to='images')),
                 ('payment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='skarbnik.Payment')),
             ],
         ),
