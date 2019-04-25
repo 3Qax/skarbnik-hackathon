@@ -10,7 +10,7 @@ from django.contrib.auth.models import AbstractUser
 
 from datetime import datetime
 class User(AbstractUser):
-    
+
     id_field = models.AutoField(db_column='id_', primary_key=True)  # Field renamed because it ended with '_'.
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=64, unique=True)
@@ -18,7 +18,7 @@ class User(AbstractUser):
     password = models.CharField(max_length=200)
     role = models.IntegerField(null=True)
     USERNAME_FIELD = 'username'
-    
+
     class Meta:
         managed = True
         db_table = 'user'
@@ -48,8 +48,10 @@ class Payment(models.Model):
         db_table = 'payment'
 
 class PaymentImage(models.Model):
-    payment = models.ForeignKey(Payment, related_name='images', on_delete=models.CASCADE)
+    id_field = models.AutoField(db_column='id_', primary_key=True)
     image = models.ImageField()
+    payment = models.ForeignKey(Payment, related_name='images', on_delete=models.CASCADE)
+
 
 class PaymentDetail(models.Model):
     id_field = models.AutoField(db_column='id_', primary_key=True)  # Field renamed because it ended with '_'.
@@ -93,6 +95,3 @@ class UserLoginActivity(models.Model):
     class Meta:
         verbose_name = 'user_login_activity'
         verbose_name_plural = 'user_login_activities'
-
-
-
