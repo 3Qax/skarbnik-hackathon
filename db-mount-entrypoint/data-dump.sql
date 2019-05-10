@@ -626,6 +626,12 @@ CREATE TABLE `skarbnik_paymentimage` (
   CONSTRAINT `skarbnik_paymentimage_payment_id_ae274325_fk_payment_id_` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+INSERT INTO `skarbnik_paymentimage`
+VALUES  ('1', 'images/2450acc3-e6d.jpg', '9'),
+        ('2', 'images/5ce54e5d-94f.jpg', '9'),
+        ('3', 'images/ebc702bc-4d9.jpg', '9');
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
